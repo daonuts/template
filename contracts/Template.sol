@@ -19,7 +19,7 @@ import "@aragon/apps-token-manager/contracts/TokenManager.sol";
 import "@aragon/apps-voting/contracts/Voting.sol";
 import "@aragon/apps-shared-minime/contracts/MiniMeToken.sol";
 
-import "@1hive/airdrop-app/contracts/Airdrop.sol";
+import "@daonuts/template-apps/contracts/TemplateApps.sol";
 
 import "./TokenCache.sol";
 
@@ -30,12 +30,12 @@ contract Template is TokenCache {
 
     //namehash("bare-kit.aragonpm.eth")
     bytes32 constant bareKitId = 0xf5ac5461dc6e4b6382eea8c2bc0d0d47c346537a4cb19fba07e96d7ef0edc5c0;
-    //namehash("airdrop-app.open.aragonpm.eth")
-    bytes32 constant airdropAppId = 0x356065541af8b2e74db8b224183c7552774bd8246b1191179719921d9c97d4c2;
     //namehash("voting.aragonpm.eth")
     bytes32 constant votingAppId = 0x9fa3927f639745e587912d4b0fea7ef9013bf93fb907d29faeab57417ba6e1d4;
     //namehash("token-manager.aragonpm.eth")
     bytes32 constant tokenManagerAppId = 0x6b20a3010614eeebf2138ccec99f028a61c811b3b1a3343b6ff635985c75c91f;
+    //namehash("daonuts-template-v1-apps.open.aragonpm.eth")
+    bytes32 constant templateAppsId = 0xf8209b7d80297fa9400dfd54785753cae5e8c513c76c323306b46294b7d49739;
 
     event DeployDao(address dao);
     event InstalledApp(address appProxy, bytes32 appId);
@@ -57,12 +57,10 @@ contract Template is TokenCache {
         acl.createPermission(this, dao, dao.APP_MANAGER_ROLE(), this);
 
         Voting voting = Voting(dao.newAppInstance(votingAppId, latestVersionAppBase(votingAppId)));
-        Airdrop airdrop = Airdrop(dao.newAppInstance(airdropAppId, latestVersionAppBase(airdropAppId)));
 
         TokenManager guardianTokenManager = TokenManager(dao.newAppInstance(tokenManagerAppId, latestVersionAppBase(tokenManagerAppId)));
         TokenManager currencyTokenManager = TokenManager(dao.newAppInstance(tokenManagerAppId, latestVersionAppBase(tokenManagerAppId)));
 
-        /* MiniMeToken token = tokenFactory.createCloneToken(MiniMeToken(0), 0, "Guardian", 18, "GUARD", false); */
         MiniMeToken guardianToken = _popTokenCache(msg.sender, _guardianTokenName);
         guardianToken.changeController(guardianTokenManager);
 
@@ -76,23 +74,16 @@ contract Template is TokenCache {
         emit InstalledApp(currencyTokenManager, tokenManagerAppId);
         voting.initialize(guardianToken, uint64(60 * 10**16), uint64(15 * 10**16), uint64(1 days));
         emit InstalledApp(voting, votingAppId);
-        airdrop.initialize(currencyTokenManager);
-        emit InstalledApp(airdrop, airdropAppId);
 
-        _permissions(dao, acl, voting, guardianTokenManager, _holders, currencyTokenManager, airdrop);
+        _permissions(dao, acl, voting, guardianTokenManager, _holders, currencyTokenManager);
     }
 
     function _permissions(
         Kernel _dao, ACL _acl, Voting _voting, TokenManager _guardianTokenManager,
-        address[] _holders, TokenManager _currencyTokenManager, Airdrop _airdrop
+        address[] _holders, TokenManager _currencyTokenManager
     ) internal {
-
-        bytes32 APP_MANAGER_ROLE = _dao.APP_MANAGER_ROLE();
-        bytes32 CREATE_PERMISSIONS_ROLE = _acl.CREATE_PERMISSIONS_ROLE();
         bytes32 MINT_ROLE = _guardianTokenManager.MINT_ROLE();
 
-        _acl.createPermission(_voting, _airdrop, _airdrop.START_ROLE(), _voting);
-        _acl.createPermission(_airdrop, _currencyTokenManager, _currencyTokenManager.MINT_ROLE(), _voting);
         _acl.createPermission(_guardianTokenManager, _voting, _voting.CREATE_VOTES_ROLE(), _voting);
         _acl.createPermission(_voting, _guardianTokenManager, _guardianTokenManager.BURN_ROLE(), _voting);
 
@@ -103,15 +94,29 @@ contract Template is TokenCache {
         _acl.revokePermission(this, _guardianTokenManager, MINT_ROLE);
         _acl.setPermissionManager(_voting, _guardianTokenManager, MINT_ROLE);
 
-        _acl.grantPermission(_voting, _dao, APP_MANAGER_ROLE);
-        _acl.revokePermission(this, _dao, APP_MANAGER_ROLE);
-        _acl.setPermissionManager(_voting, _dao, APP_MANAGER_ROLE);
-
-        _acl.grantPermission(_voting, _acl, CREATE_PERMISSIONS_ROLE);
-        _acl.revokePermission(this, _acl, CREATE_PERMISSIONS_ROLE);
-        _acl.setPermissionManager(_voting, _acl, CREATE_PERMISSIONS_ROLE);
+        _acl.grantPermission(_voting, _dao, _dao.APP_MANAGER_ROLE());
+        _acl.grantPermission(_voting, _acl, _acl.CREATE_PERMISSIONS_ROLE());
 
         emit DeployDao(_dao);
+    }
+
+    function installApps(Kernel _dao, Voting _voting, TokenManager _currencyTokenManager) public {
+        ACL acl = ACL(_dao.acl());
+
+        bytes32 APP_MANAGER_ROLE = _dao.APP_MANAGER_ROLE();
+        bytes32 CREATE_PERMISSIONS_ROLE = acl.CREATE_PERMISSIONS_ROLE();
+
+        TemplateApps templateApps = TemplateApps(latestVersionAppBase(templateAppsId));
+
+        acl.grantPermission(templateApps, _dao, APP_MANAGER_ROLE);
+        acl.revokePermission(this, _dao, APP_MANAGER_ROLE);
+        acl.setPermissionManager(templateApps, _dao, APP_MANAGER_ROLE);
+
+        acl.grantPermission(templateApps, acl, CREATE_PERMISSIONS_ROLE);
+        acl.revokePermission(this, acl, CREATE_PERMISSIONS_ROLE);
+        acl.setPermissionManager(templateApps, acl, CREATE_PERMISSIONS_ROLE);
+
+        templateApps.install(_dao, _voting, _currencyTokenManager);
     }
 
     function _mintHolders(TokenManager _tokenManager, address[] _holders) internal {
