@@ -54,14 +54,14 @@
     "absolutePath": "@aragon/os/contracts/common/Petrifiable.sol",
     "exportedSymbols": {
       "Petrifiable": [
-        7153
+        6991
       ]
     },
-    "id": 7154,
+    "id": 6992,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7122,
+        "id": 6960,
         "literals": [
           "solidity",
           "^",
@@ -74,10 +74,10 @@
       {
         "absolutePath": "@aragon/os/contracts/common/Initializable.sol",
         "file": "./Initializable.sol",
-        "id": 7123,
+        "id": 6961,
         "nodeType": "ImportDirective",
-        "scope": 7154,
-        "sourceUnit": 7093,
+        "scope": 6992,
+        "sourceUnit": 6931,
         "src": "70:29:27",
         "symbolAliases": [],
         "unitAlias": ""
@@ -88,43 +88,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 7124,
+              "id": 6962,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7092,
+              "referencedDeclaration": 6930,
               "src": "126:13:27",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$7092",
+                "typeIdentifier": "t_contract$_Initializable_$6930",
                 "typeString": "contract Initializable"
               }
             },
-            "id": 7125,
+            "id": 6963,
             "nodeType": "InheritanceSpecifier",
             "src": "126:13:27"
           }
         ],
         "contractDependencies": [
-          7092,
-          7482
+          6930,
+          7320
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7153,
+        "id": 6991,
         "linearizedBaseContracts": [
-          7153,
-          7092,
-          7482
+          6991,
+          6930,
+          7320
         ],
         "name": "Petrifiable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 7131,
+            "id": 6969,
             "name": "PETRIFIED_BLOCK",
             "nodeType": "VariableDeclaration",
-            "scope": 7153,
+            "scope": 6991,
             "src": "225:55:27",
             "stateVariable": true,
             "storageLocation": "default",
@@ -133,7 +133,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 7126,
+              "id": 6964,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "225:7:27",
@@ -147,7 +147,7 @@
               "arguments": [
                 {
                   "argumentTypes": null,
-                  "id": 7129,
+                  "id": 6967,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -159,7 +159,7 @@
                   "subExpression": {
                     "argumentTypes": null,
                     "hexValue": "31",
-                    "id": 7128,
+                    "id": 6966,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -187,7 +187,7 @@
                     "typeString": "int_const -1"
                   }
                 ],
-                "id": 7127,
+                "id": 6965,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -200,7 +200,7 @@
                 },
                 "typeName": "uint256"
               },
-              "id": 7130,
+              "id": 6968,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -218,7 +218,7 @@
           },
           {
             "body": {
-              "id": 7141,
+              "id": 6979,
               "nodeType": "Block",
               "src": "337:67:27",
               "statements": [
@@ -229,7 +229,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 7139,
+                    "id": 6977,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -239,18 +239,18 @@
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 7136,
+                        "id": 6974,
                         "name": "getInitializationBlock",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7044,
+                        "referencedDeclaration": 6882,
                         "src": "354:22:27",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
                           "typeString": "function () view returns (uint256)"
                         }
                       },
-                      "id": 7137,
+                      "id": 6975,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -268,11 +268,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 7138,
+                      "id": 6976,
                       "name": "PETRIFIED_BLOCK",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7131,
+                      "referencedDeclaration": 6969,
                       "src": "382:15:27",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -285,15 +285,15 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 7135,
-                  "id": 7140,
+                  "functionReturnParameters": 6973,
+                  "id": 6978,
                   "nodeType": "Return",
                   "src": "347:50:27"
                 }
               ]
             },
             "documentation": null,
-            "id": 7142,
+            "id": 6980,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -301,22 +301,22 @@
             "name": "isPetrified",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7132,
+              "id": 6970,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "307:2:27"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7135,
+              "id": 6973,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7134,
+                  "id": 6972,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7142,
+                  "scope": 6980,
                   "src": "331:4:27",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -325,7 +325,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7133,
+                    "id": 6971,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "331:4:27",
@@ -340,7 +340,7 @@
               ],
               "src": "330:6:27"
             },
-            "scope": 7153,
+            "scope": 6991,
             "src": "287:117:27",
             "stateMutability": "view",
             "superFunction": null,
@@ -348,7 +348,7 @@
           },
           {
             "body": {
-              "id": 7151,
+              "id": 6989,
               "nodeType": "Block",
               "src": "627:47:27",
               "statements": [
@@ -358,11 +358,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7148,
+                        "id": 6986,
                         "name": "PETRIFIED_BLOCK",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7131,
+                        "referencedDeclaration": 6969,
                         "src": "651:15:27",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -377,18 +377,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7147,
+                      "id": 6985,
                       "name": "initializedAt",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7091,
+                      "referencedDeclaration": 6929,
                       "src": "637:13:27",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 7149,
+                    "id": 6987,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -402,28 +402,28 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7150,
+                  "id": 6988,
                   "nodeType": "ExpressionStatement",
                   "src": "637:30:27"
                 }
               ]
             },
             "documentation": "@dev Function to be called by top level contract to prevent being initialized.\n     Useful for freezing base contracts when they're used behind proxies.",
-            "id": 7152,
+            "id": 6990,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 7145,
+                "id": 6983,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 7144,
+                  "id": 6982,
                   "name": "onlyInit",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 7024,
+                  "referencedDeclaration": 6862,
                   "src": "618:8:27",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -437,26 +437,26 @@
             "name": "petrify",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7143,
+              "id": 6981,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "606:2:27"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7146,
+              "id": 6984,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "627:0:27"
             },
-            "scope": 7153,
+            "scope": 6991,
             "src": "590:84:27",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 7154,
+        "scope": 6992,
         "src": "102:574:27"
       }
     ],
@@ -466,14 +466,14 @@
     "absolutePath": "@aragon/os/contracts/common/Petrifiable.sol",
     "exportedSymbols": {
       "Petrifiable": [
-        7153
+        6991
       ]
     },
-    "id": 7154,
+    "id": 6992,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7122,
+        "id": 6960,
         "literals": [
           "solidity",
           "^",
@@ -486,10 +486,10 @@
       {
         "absolutePath": "@aragon/os/contracts/common/Initializable.sol",
         "file": "./Initializable.sol",
-        "id": 7123,
+        "id": 6961,
         "nodeType": "ImportDirective",
-        "scope": 7154,
-        "sourceUnit": 7093,
+        "scope": 6992,
+        "sourceUnit": 6931,
         "src": "70:29:27",
         "symbolAliases": [],
         "unitAlias": ""
@@ -500,43 +500,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 7124,
+              "id": 6962,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7092,
+              "referencedDeclaration": 6930,
               "src": "126:13:27",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$7092",
+                "typeIdentifier": "t_contract$_Initializable_$6930",
                 "typeString": "contract Initializable"
               }
             },
-            "id": 7125,
+            "id": 6963,
             "nodeType": "InheritanceSpecifier",
             "src": "126:13:27"
           }
         ],
         "contractDependencies": [
-          7092,
-          7482
+          6930,
+          7320
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7153,
+        "id": 6991,
         "linearizedBaseContracts": [
-          7153,
-          7092,
-          7482
+          6991,
+          6930,
+          7320
         ],
         "name": "Petrifiable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 7131,
+            "id": 6969,
             "name": "PETRIFIED_BLOCK",
             "nodeType": "VariableDeclaration",
-            "scope": 7153,
+            "scope": 6991,
             "src": "225:55:27",
             "stateVariable": true,
             "storageLocation": "default",
@@ -545,7 +545,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 7126,
+              "id": 6964,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "225:7:27",
@@ -559,7 +559,7 @@
               "arguments": [
                 {
                   "argumentTypes": null,
-                  "id": 7129,
+                  "id": 6967,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -571,7 +571,7 @@
                   "subExpression": {
                     "argumentTypes": null,
                     "hexValue": "31",
-                    "id": 7128,
+                    "id": 6966,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -599,7 +599,7 @@
                     "typeString": "int_const -1"
                   }
                 ],
-                "id": 7127,
+                "id": 6965,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -612,7 +612,7 @@
                 },
                 "typeName": "uint256"
               },
-              "id": 7130,
+              "id": 6968,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -630,7 +630,7 @@
           },
           {
             "body": {
-              "id": 7141,
+              "id": 6979,
               "nodeType": "Block",
               "src": "337:67:27",
               "statements": [
@@ -641,7 +641,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 7139,
+                    "id": 6977,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -651,18 +651,18 @@
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 7136,
+                        "id": 6974,
                         "name": "getInitializationBlock",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7044,
+                        "referencedDeclaration": 6882,
                         "src": "354:22:27",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
                           "typeString": "function () view returns (uint256)"
                         }
                       },
-                      "id": 7137,
+                      "id": 6975,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -680,11 +680,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 7138,
+                      "id": 6976,
                       "name": "PETRIFIED_BLOCK",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7131,
+                      "referencedDeclaration": 6969,
                       "src": "382:15:27",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -697,15 +697,15 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 7135,
-                  "id": 7140,
+                  "functionReturnParameters": 6973,
+                  "id": 6978,
                   "nodeType": "Return",
                   "src": "347:50:27"
                 }
               ]
             },
             "documentation": null,
-            "id": 7142,
+            "id": 6980,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -713,22 +713,22 @@
             "name": "isPetrified",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7132,
+              "id": 6970,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "307:2:27"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7135,
+              "id": 6973,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7134,
+                  "id": 6972,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7142,
+                  "scope": 6980,
                   "src": "331:4:27",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -737,7 +737,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7133,
+                    "id": 6971,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "331:4:27",
@@ -752,7 +752,7 @@
               ],
               "src": "330:6:27"
             },
-            "scope": 7153,
+            "scope": 6991,
             "src": "287:117:27",
             "stateMutability": "view",
             "superFunction": null,
@@ -760,7 +760,7 @@
           },
           {
             "body": {
-              "id": 7151,
+              "id": 6989,
               "nodeType": "Block",
               "src": "627:47:27",
               "statements": [
@@ -770,11 +770,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7148,
+                        "id": 6986,
                         "name": "PETRIFIED_BLOCK",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7131,
+                        "referencedDeclaration": 6969,
                         "src": "651:15:27",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -789,18 +789,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7147,
+                      "id": 6985,
                       "name": "initializedAt",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7091,
+                      "referencedDeclaration": 6929,
                       "src": "637:13:27",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 7149,
+                    "id": 6987,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -814,28 +814,28 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7150,
+                  "id": 6988,
                   "nodeType": "ExpressionStatement",
                   "src": "637:30:27"
                 }
               ]
             },
             "documentation": "@dev Function to be called by top level contract to prevent being initialized.\n     Useful for freezing base contracts when they're used behind proxies.",
-            "id": 7152,
+            "id": 6990,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 7145,
+                "id": 6983,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 7144,
+                  "id": 6982,
                   "name": "onlyInit",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 7024,
+                  "referencedDeclaration": 6862,
                   "src": "618:8:27",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -849,26 +849,26 @@
             "name": "petrify",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7143,
+              "id": 6981,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "606:2:27"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7146,
+              "id": 6984,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "627:0:27"
             },
-            "scope": 7153,
+            "scope": 6991,
             "src": "590:84:27",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 7154,
+        "scope": 6992,
         "src": "102:574:27"
       }
     ],
@@ -880,5 +880,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-10-23T15:53:11.712Z"
+  "updatedAt": "2019-10-24T23:10:40.070Z"
 }

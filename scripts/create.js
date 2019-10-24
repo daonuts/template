@@ -12,15 +12,22 @@ const apm = APM(web3, {ensRegistryAddress: aragonENS})
 
 async function main(){
   const templateAddress = await apm.getLatestVersionContract("daonuts-template-v1.open.aragonpm.eth")
+  console.log("templateAddress", templateAddress)
+  const airdropDuoAddress = await apm.getLatestVersionContract("airdrop-duo-app.open.aragonpm.eth")
+  console.log("airdropDuoAddress", airdropDuoAddress)
+  const challengeAddress = await apm.getLatestVersionContract("challenge-app.open.aragonpm.eth")
+  console.log("challengeAddress", challengeAddress)
+  const subscribeAddress = await apm.getLatestVersionContract("subscribe-app.open.aragonpm.eth")
+  console.log("subscribeAddress", subscribeAddress)
   const template = new ethers.Contract(templateAddress, TemplateABI, wallet);
 
-  const txGuardianToken = await template.createToken("Guardian", 18, "GUARD", false, {gasLimit: 3000000})
-  const txCurrencyToken = await template.createToken("Currency", 18, "PLAY", true, {gasLimit: 3000000})
-  console.log("txGuardianToken")
+  const txContribToken = await template.createToken("Contrib", 18, "CONTRIB", false, {gasLimit: 3000000})
+  const txCurrencyToken = await template.createToken("Currency", 18, "CURRENCY", true, {gasLimit: 3000000})
+  console.log("txContribToken")
   console.log("txCurrencyToken")
-  await txGuardianToken.wait()
+  await txContribToken.wait()
   await txCurrencyToken.wait()
-  const txDao = await template.newInstance([wallet.address], "Guardian", "Currency", {gasLimit: 7000000})
+  const txDao = await template.newInstance("Contrib", "Currency", {gasLimit: 7000000})
   console.log("txDao")
   const daoBlock = await txDao.wait()
   console.log(daoBlock.transactionHash)
@@ -36,13 +43,18 @@ async function main(){
   console.log(`voting: ${voting}`)
 
   const tokenManagerAppId = namehash("token-manager.aragonpm.eth")
-  // take first (1) from filtered array because the currencyTokenManager is the second token manager installed
-  const currencyTokenManager = await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-    .then(events=>events.filter(e=>e.returnValues.appId===tokenManagerAppId)[1].returnValues.appProxy)
-  console.log(`currencyTokenManager: ${currencyTokenManager}`)
+  // take first (1) from filtered array because the currencyManager is the second token manager installed
+  const tokenManagers = await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
+    .then(events=>events.filter(e=>e.returnValues.appId===tokenManagerAppId).map(e=>e.returnValues.appProxy))
 
-  const txTemplateApps = await template.installApps(dao, voting, currencyTokenManager, {gasLimit: 7000000})
+  console.log(`tokenManagers: ${tokenManagers}`)
+
+  const txTemplateApps = await template.installApps(dao, voting, tokenManagers[0], tokenManagers[1], {gasLimit: 7000000})
   await txTemplateApps.wait()
 
 }
 main()
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
