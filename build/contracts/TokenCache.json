@@ -11,14 +11,14 @@
     "absolutePath": "/home/carl/Projects/daonuts/template/contracts/TokenCache.sol",
     "exportedSymbols": {
       "TokenCache": [
-        987
+        793
       ]
     },
-    "id": 988,
+    "id": 794,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 924,
+        "id": 730,
         "literals": [
           "solidity",
           "^",
@@ -31,10 +31,10 @@
       {
         "absolutePath": "@aragon/apps-shared-minime/contracts/MiniMeToken.sol",
         "file": "@aragon/apps-shared-minime/contracts/MiniMeToken.sol",
-        "id": 925,
+        "id": 731,
         "nodeType": "ImportDirective",
-        "scope": 988,
-        "sourceUnit": 2127,
+        "scope": 794,
+        "sourceUnit": 1990,
         "src": "26:62:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -45,19 +45,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 987,
+        "id": 793,
         "linearizedBaseContracts": [
-          987
+          793
         ],
         "name": "TokenCache",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 931,
+            "id": 737,
             "name": "tokenCache",
             "nodeType": "VariableDeclaration",
-            "scope": 987,
+            "scope": 793,
             "src": "116:70:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -66,9 +66,9 @@
               "typeString": "mapping(address => mapping(bytes32 => address))"
             },
             "typeName": {
-              "id": 930,
+              "id": 736,
               "keyType": {
-                "id": 926,
+                "id": 732,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "125:7:2",
@@ -84,9 +84,9 @@
                 "typeString": "mapping(address => mapping(bytes32 => address))"
               },
               "valueType": {
-                "id": 929,
+                "id": 735,
                 "keyType": {
-                  "id": 927,
+                  "id": 733,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "145:7:2",
@@ -102,7 +102,7 @@
                   "typeString": "mapping(bytes32 => address)"
                 },
                 "valueType": {
-                  "id": 928,
+                  "id": 734,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "156:7:2",
@@ -118,14 +118,14 @@
           },
           {
             "body": {
-              "id": 950,
+              "id": 756,
               "nodeType": "Block",
               "src": "259:70:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 948,
+                    "id": 754,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -136,25 +136,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 938,
+                          "id": 744,
                           "name": "tokenCache",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 931,
+                          "referencedDeclaration": 737,
                           "src": "269:10:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                             "typeString": "mapping(address => mapping(bytes32 => address))"
                           }
                         },
-                        "id": 945,
+                        "id": 751,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 939,
+                          "id": 745,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 935,
+                          "referencedDeclaration": 741,
                           "src": "280:6:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -172,7 +172,7 @@
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 946,
+                      "id": 752,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
@@ -183,32 +183,32 @@
                               "argumentTypes": [],
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 941,
+                                "id": 747,
                                 "name": "_token",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 933,
+                                "referencedDeclaration": 739,
                                 "src": "298:6:2",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                                  "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                                   "typeString": "contract MiniMeToken"
                                 }
                               },
-                              "id": 942,
+                              "id": 748,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "name",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1073,
+                              "referencedDeclaration": 936,
                               "src": "298:11:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_external_view$__$returns$_t_string_memory_$",
                                 "typeString": "function () view external returns (string memory)"
                               }
                             },
-                            "id": 943,
+                            "id": 749,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -230,18 +230,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 940,
+                          "id": 746,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11967,
+                          "referencedDeclaration": 11910,
                           "src": "288:9:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                             "typeString": "function () pure returns (bytes32)"
                           }
                         },
-                        "id": 944,
+                        "id": 750,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -270,14 +270,14 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 947,
+                      "id": 753,
                       "name": "_token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 933,
+                      "referencedDeclaration": 739,
                       "src": "316:6:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                        "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                         "typeString": "contract MiniMeToken"
                       }
                     },
@@ -287,14 +287,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 949,
+                  "id": 755,
                   "nodeType": "ExpressionStatement",
                   "src": "269:53:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 951,
+            "id": 757,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -302,31 +302,31 @@
             "name": "_cacheToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 936,
+              "id": 742,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 933,
+                  "id": 739,
                   "name": "_token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 951,
+                  "scope": 757,
                   "src": "214:18:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                    "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                     "typeString": "contract MiniMeToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 932,
+                    "id": 738,
                     "name": "MiniMeToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2085,
+                    "referencedDeclaration": 1948,
                     "src": "214:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -335,10 +335,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 935,
+                  "id": 741,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 951,
+                  "scope": 757,
                   "src": "234:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -347,7 +347,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 934,
+                    "id": 740,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "234:7:2",
@@ -364,12 +364,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 937,
+              "id": 743,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "259:0:2"
             },
-            "scope": 987,
+            "scope": 793,
             "src": "193:136:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -377,21 +377,21 @@
           },
           {
             "body": {
-              "id": 985,
+              "id": 791,
               "nodeType": "Block",
               "src": "420:290:2",
               "statements": [
                 {
                   "assignments": [
-                    961
+                    767
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 961,
+                      "id": 767,
                       "name": "nameHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 986,
+                      "scope": 792,
                       "src": "430:16:2",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -400,7 +400,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 960,
+                        "id": 766,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "430:7:2",
@@ -413,17 +413,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 965,
+                  "id": 771,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 963,
+                        "id": 769,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 955,
+                        "referencedDeclaration": 761,
                         "src": "459:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -438,18 +438,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 962,
+                      "id": 768,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11967,
+                      "referencedDeclaration": 11910,
                       "src": "449:9:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 964,
+                    "id": 770,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -468,31 +468,31 @@
                 },
                 {
                   "assignments": [
-                    967
+                    773
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 967,
+                      "id": 773,
                       "name": "token",
                       "nodeType": "VariableDeclaration",
-                      "scope": 986,
+                      "scope": 792,
                       "src": "575:17:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                        "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                         "typeString": "contract MiniMeToken"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 966,
+                        "id": 772,
                         "name": "MiniMeToken",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 2085,
+                        "referencedDeclaration": 1948,
                         "src": "575:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                          "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                           "typeString": "contract MiniMeToken"
                         }
                       },
@@ -500,7 +500,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 975,
+                  "id": 781,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -510,25 +510,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 969,
+                            "id": 775,
                             "name": "tokenCache",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 931,
+                            "referencedDeclaration": 737,
                             "src": "607:10:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                               "typeString": "mapping(address => mapping(bytes32 => address))"
                             }
                           },
-                          "id": 971,
+                          "id": 777,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 970,
+                            "id": 776,
                             "name": "_owner",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 953,
+                            "referencedDeclaration": 759,
                             "src": "618:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -546,14 +546,14 @@
                             "typeString": "mapping(bytes32 => address)"
                           }
                         },
-                        "id": 973,
+                        "id": 779,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 972,
+                          "id": 778,
                           "name": "nameHash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 961,
+                          "referencedDeclaration": 767,
                           "src": "626:8:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -579,18 +579,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 968,
+                      "id": 774,
                       "name": "MiniMeToken",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2085,
+                      "referencedDeclaration": 1948,
                       "src": "595:11:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_MiniMeToken_$2085_$",
+                        "typeIdentifier": "t_type$_t_contract$_MiniMeToken_$1948_$",
                         "typeString": "type(contract MiniMeToken)"
                       }
                     },
-                    "id": 974,
+                    "id": 780,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -600,7 +600,7 @@
                     "nodeType": "FunctionCall",
                     "src": "595:41:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -610,7 +610,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 981,
+                    "id": 787,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -625,25 +625,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 976,
+                          "id": 782,
                           "name": "tokenCache",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 931,
+                          "referencedDeclaration": 737,
                           "src": "653:10:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                             "typeString": "mapping(address => mapping(bytes32 => address))"
                           }
                         },
-                        "id": 978,
+                        "id": 784,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 977,
+                          "id": 783,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 953,
+                          "referencedDeclaration": 759,
                           "src": "664:6:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -661,14 +661,14 @@
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 980,
+                      "id": 786,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 979,
+                        "id": 785,
                         "name": "nameHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 961,
+                        "referencedDeclaration": 767,
                         "src": "672:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -691,33 +691,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 982,
+                  "id": 788,
                   "nodeType": "ExpressionStatement",
                   "src": "646:35:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 983,
+                    "id": 789,
                     "name": "token",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 967,
+                    "referencedDeclaration": 773,
                     "src": "698:5:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
-                  "functionReturnParameters": 959,
-                  "id": 984,
+                  "functionReturnParameters": 765,
+                  "id": 790,
                   "nodeType": "Return",
                   "src": "691:12:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 986,
+            "id": 792,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -725,15 +725,15 @@
             "name": "_popTokenCache",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 956,
+              "id": 762,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 953,
+                  "id": 759,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "359:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -742,7 +742,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 952,
+                    "id": 758,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "359:7:2",
@@ -756,10 +756,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 955,
+                  "id": 761,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "375:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -768,7 +768,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 954,
+                    "id": 760,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "375:6:2",
@@ -785,31 +785,31 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 959,
+              "id": 765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 958,
+                  "id": 764,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "407:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                    "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                     "typeString": "contract MiniMeToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 957,
+                    "id": 763,
                     "name": "MiniMeToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2085,
+                    "referencedDeclaration": 1948,
                     "src": "407:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -819,14 +819,14 @@
               ],
               "src": "406:13:2"
             },
-            "scope": 987,
+            "scope": 793,
             "src": "335:375:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 988,
+        "scope": 794,
         "src": "90:622:2"
       }
     ],
@@ -836,14 +836,14 @@
     "absolutePath": "/home/carl/Projects/daonuts/template/contracts/TokenCache.sol",
     "exportedSymbols": {
       "TokenCache": [
-        987
+        793
       ]
     },
-    "id": 988,
+    "id": 794,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 924,
+        "id": 730,
         "literals": [
           "solidity",
           "^",
@@ -856,10 +856,10 @@
       {
         "absolutePath": "@aragon/apps-shared-minime/contracts/MiniMeToken.sol",
         "file": "@aragon/apps-shared-minime/contracts/MiniMeToken.sol",
-        "id": 925,
+        "id": 731,
         "nodeType": "ImportDirective",
-        "scope": 988,
-        "sourceUnit": 2127,
+        "scope": 794,
+        "sourceUnit": 1990,
         "src": "26:62:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -870,19 +870,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 987,
+        "id": 793,
         "linearizedBaseContracts": [
-          987
+          793
         ],
         "name": "TokenCache",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 931,
+            "id": 737,
             "name": "tokenCache",
             "nodeType": "VariableDeclaration",
-            "scope": 987,
+            "scope": 793,
             "src": "116:70:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -891,9 +891,9 @@
               "typeString": "mapping(address => mapping(bytes32 => address))"
             },
             "typeName": {
-              "id": 930,
+              "id": 736,
               "keyType": {
-                "id": 926,
+                "id": 732,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "125:7:2",
@@ -909,9 +909,9 @@
                 "typeString": "mapping(address => mapping(bytes32 => address))"
               },
               "valueType": {
-                "id": 929,
+                "id": 735,
                 "keyType": {
-                  "id": 927,
+                  "id": 733,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "145:7:2",
@@ -927,7 +927,7 @@
                   "typeString": "mapping(bytes32 => address)"
                 },
                 "valueType": {
-                  "id": 928,
+                  "id": 734,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "156:7:2",
@@ -943,14 +943,14 @@
           },
           {
             "body": {
-              "id": 950,
+              "id": 756,
               "nodeType": "Block",
               "src": "259:70:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 948,
+                    "id": 754,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -961,25 +961,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 938,
+                          "id": 744,
                           "name": "tokenCache",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 931,
+                          "referencedDeclaration": 737,
                           "src": "269:10:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                             "typeString": "mapping(address => mapping(bytes32 => address))"
                           }
                         },
-                        "id": 945,
+                        "id": 751,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 939,
+                          "id": 745,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 935,
+                          "referencedDeclaration": 741,
                           "src": "280:6:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -997,7 +997,7 @@
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 946,
+                      "id": 752,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
@@ -1008,32 +1008,32 @@
                               "argumentTypes": [],
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 941,
+                                "id": 747,
                                 "name": "_token",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 933,
+                                "referencedDeclaration": 739,
                                 "src": "298:6:2",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                                  "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                                   "typeString": "contract MiniMeToken"
                                 }
                               },
-                              "id": 942,
+                              "id": 748,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "name",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1073,
+                              "referencedDeclaration": 936,
                               "src": "298:11:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_external_view$__$returns$_t_string_memory_$",
                                 "typeString": "function () view external returns (string memory)"
                               }
                             },
-                            "id": 943,
+                            "id": 749,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1055,18 +1055,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 940,
+                          "id": 746,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11967,
+                          "referencedDeclaration": 11910,
                           "src": "288:9:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                             "typeString": "function () pure returns (bytes32)"
                           }
                         },
-                        "id": 944,
+                        "id": 750,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1095,14 +1095,14 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 947,
+                      "id": 753,
                       "name": "_token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 933,
+                      "referencedDeclaration": 739,
                       "src": "316:6:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                        "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                         "typeString": "contract MiniMeToken"
                       }
                     },
@@ -1112,14 +1112,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 949,
+                  "id": 755,
                   "nodeType": "ExpressionStatement",
                   "src": "269:53:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 951,
+            "id": 757,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1127,31 +1127,31 @@
             "name": "_cacheToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 936,
+              "id": 742,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 933,
+                  "id": 739,
                   "name": "_token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 951,
+                  "scope": 757,
                   "src": "214:18:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                    "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                     "typeString": "contract MiniMeToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 932,
+                    "id": 738,
                     "name": "MiniMeToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2085,
+                    "referencedDeclaration": 1948,
                     "src": "214:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -1160,10 +1160,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 935,
+                  "id": 741,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 951,
+                  "scope": 757,
                   "src": "234:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1172,7 +1172,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 934,
+                    "id": 740,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "234:7:2",
@@ -1189,12 +1189,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 937,
+              "id": 743,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "259:0:2"
             },
-            "scope": 987,
+            "scope": 793,
             "src": "193:136:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1202,21 +1202,21 @@
           },
           {
             "body": {
-              "id": 985,
+              "id": 791,
               "nodeType": "Block",
               "src": "420:290:2",
               "statements": [
                 {
                   "assignments": [
-                    961
+                    767
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 961,
+                      "id": 767,
                       "name": "nameHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 986,
+                      "scope": 792,
                       "src": "430:16:2",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1225,7 +1225,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 960,
+                        "id": 766,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "430:7:2",
@@ -1238,17 +1238,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 965,
+                  "id": 771,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 963,
+                        "id": 769,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 955,
+                        "referencedDeclaration": 761,
                         "src": "459:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1263,18 +1263,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 962,
+                      "id": 768,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11967,
+                      "referencedDeclaration": 11910,
                       "src": "449:9:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 964,
+                    "id": 770,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1293,31 +1293,31 @@
                 },
                 {
                   "assignments": [
-                    967
+                    773
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 967,
+                      "id": 773,
                       "name": "token",
                       "nodeType": "VariableDeclaration",
-                      "scope": 986,
+                      "scope": 792,
                       "src": "575:17:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                        "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                         "typeString": "contract MiniMeToken"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 966,
+                        "id": 772,
                         "name": "MiniMeToken",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 2085,
+                        "referencedDeclaration": 1948,
                         "src": "575:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                          "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                           "typeString": "contract MiniMeToken"
                         }
                       },
@@ -1325,7 +1325,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 975,
+                  "id": 781,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1335,25 +1335,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 969,
+                            "id": 775,
                             "name": "tokenCache",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 931,
+                            "referencedDeclaration": 737,
                             "src": "607:10:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                               "typeString": "mapping(address => mapping(bytes32 => address))"
                             }
                           },
-                          "id": 971,
+                          "id": 777,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 970,
+                            "id": 776,
                             "name": "_owner",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 953,
+                            "referencedDeclaration": 759,
                             "src": "618:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1371,14 +1371,14 @@
                             "typeString": "mapping(bytes32 => address)"
                           }
                         },
-                        "id": 973,
+                        "id": 779,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 972,
+                          "id": 778,
                           "name": "nameHash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 961,
+                          "referencedDeclaration": 767,
                           "src": "626:8:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1404,18 +1404,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 968,
+                      "id": 774,
                       "name": "MiniMeToken",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2085,
+                      "referencedDeclaration": 1948,
                       "src": "595:11:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_MiniMeToken_$2085_$",
+                        "typeIdentifier": "t_type$_t_contract$_MiniMeToken_$1948_$",
                         "typeString": "type(contract MiniMeToken)"
                       }
                     },
-                    "id": 974,
+                    "id": 780,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1425,7 +1425,7 @@
                     "nodeType": "FunctionCall",
                     "src": "595:41:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -1435,7 +1435,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 981,
+                    "id": 787,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1450,25 +1450,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 976,
+                          "id": 782,
                           "name": "tokenCache",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 931,
+                          "referencedDeclaration": 737,
                           "src": "653:10:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_address_$_$",
                             "typeString": "mapping(address => mapping(bytes32 => address))"
                           }
                         },
-                        "id": 978,
+                        "id": 784,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 977,
+                          "id": 783,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 953,
+                          "referencedDeclaration": 759,
                           "src": "664:6:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1486,14 +1486,14 @@
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 980,
+                      "id": 786,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 979,
+                        "id": 785,
                         "name": "nameHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 961,
+                        "referencedDeclaration": 767,
                         "src": "672:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1516,33 +1516,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 982,
+                  "id": 788,
                   "nodeType": "ExpressionStatement",
                   "src": "646:35:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 983,
+                    "id": 789,
                     "name": "token",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 967,
+                    "referencedDeclaration": 773,
                     "src": "698:5:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
-                  "functionReturnParameters": 959,
-                  "id": 984,
+                  "functionReturnParameters": 765,
+                  "id": 790,
                   "nodeType": "Return",
                   "src": "691:12:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 986,
+            "id": 792,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1550,15 +1550,15 @@
             "name": "_popTokenCache",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 956,
+              "id": 762,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 953,
+                  "id": 759,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "359:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1567,7 +1567,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 952,
+                    "id": 758,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "359:7:2",
@@ -1581,10 +1581,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 955,
+                  "id": 761,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "375:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1593,7 +1593,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 954,
+                    "id": 760,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "375:6:2",
@@ -1610,31 +1610,31 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 959,
+              "id": 765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 958,
+                  "id": 764,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 792,
                   "src": "407:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                    "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                     "typeString": "contract MiniMeToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 957,
+                    "id": 763,
                     "name": "MiniMeToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2085,
+                    "referencedDeclaration": 1948,
                     "src": "407:11:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_MiniMeToken_$2085",
+                      "typeIdentifier": "t_contract$_MiniMeToken_$1948",
                       "typeString": "contract MiniMeToken"
                     }
                   },
@@ -1644,14 +1644,14 @@
               ],
               "src": "406:13:2"
             },
-            "scope": 987,
+            "scope": 793,
             "src": "335:375:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 988,
+        "scope": 794,
         "src": "90:622:2"
       }
     ],
@@ -1663,5 +1663,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-10-24T23:10:40.085Z"
+  "updatedAt": "2019-10-28T13:07:02.356Z"
 }

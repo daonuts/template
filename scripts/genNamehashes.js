@@ -4,8 +4,8 @@ const names = [
   {name: "airdrop-duo-app.open.aragonpm.eth", variable: "airdropDuoAppId"},
   {name: "subscribe-app.open.aragonpm.eth", variable: "subscribeAppId"},
   {name: "challenge-app.open.aragonpm.eth", variable: "challengeAppId"},
-  {name: "tip-app.open.aragonpm.eth", variable: "tipAppId"},
-  {name: "daonuts-template-v1-apps.open.aragonpm.eth", variable: "templateAppsId"},
+  {name: "tipping-app.open.aragonpm.eth", variable: "tippingAppId"},
+  {name: "daonuts-template1-apps.open.aragonpm.eth", variable: "templateAppsId"},
   {name: "voting.aragonpm.eth", variable: "votingAppId"},
   {name: "token-manager.aragonpm.eth", variable: "tokenManagerAppId"}
 ]

@@ -1,5 +1,5 @@
 {
-	"name": "@daonuts/template",
+	"name": "@daonuts/template1",
 	"version": "0.0.2",
 	"description": "",
 	"dependencies": {
@@ -10,24 +10,21 @@
 		"@aragon/apps-voting": "^2.1.0",
 		"@aragon/os": "^4.3.0",
 		"@aragon/templates-shared": "^1.0.0",
-		"@daonuts/airdrop-duo-app": "daonuts/airdrop-duo-app#master",
-		"@daonuts/challenge-app": "daonuts/challenge-app#master",
-		"@daonuts/subscribe-app": "daonuts/subscribe-app#master",
-		"@daonuts/template-apps": "daonuts/template-apps#master",
-		"@daonuts/tip-app": "daonuts/tip-app#master",
+		"@daonuts/template-apps": "0.0.3",
 		"core-js": "^3.1.4",
 		"eth-ens-namehash": "^2.0.8",
 		"web3": "^1.2.1"
 	},
 	"devDependencies": {
 		"@aragon/apps-shared-migrations": "^1.0.0",
-		"@aragon/cli": "^6.2.6",
+		"@aragon/cli": "^6.3.3",
 		"@aragon/test-helpers": "^1.1.0",
 		"@babel/core": "^7.6.0",
 		"@babel/plugin-proposal-class-properties": "^7.5.5",
 		"@babel/preset-env": "^7.6.0",
 		"homedir": "^0.6.0",
-		"parcel-bundler": "^1.12.3"
+		"parcel-bundler": "^1.12.3",
+		"truffle-extract": "^1.2.1"
 	},
 	"scripts": {
 		"test": "aragon contracts test",
