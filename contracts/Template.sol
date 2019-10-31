@@ -17,11 +17,13 @@ import "@aragon/os/contracts/lib/ens/PublicResolver.sol";
 
 import "@aragon/apps-shared-minime/contracts/MiniMeToken.sol";
 import "@aragon/apps-token-manager/contracts/TokenManager.sol";
-import "@aragon/apps-voting/contracts/Voting.sol";
+/* import "@aragon/apps-voting/contracts/Voting.sol"; */
+import "@daonuts/token/contracts/Token.sol";
 import "@daonuts/airdrop-duo/contracts/AirdropDuo.sol";
 import "@daonuts/challenge/contracts/Challenge.sol";
 import "@daonuts/subscribe/contracts/Subscribe.sol";
 import "@daonuts/tipping/contracts/Tipping.sol";
+import "@daonuts/capped-voting/contracts/CappedVoting.sol";
 
 /* import "@daonuts/template-apps/contracts/TemplateApps.sol"; */
 import "../../template-apps/contracts/TemplateApps.sol";
@@ -32,26 +34,29 @@ contract Template is TokenCache {
     ENS public ens;
     /* address public installer; */
     DAOFactory public fac;
-    MiniMeTokenFactory tokenFactory;
+    /* MiniMeTokenFactory tokenFactory; */
     uint constant TOKEN_UNIT = 10 ** 18;
     address constant ANY_ENTITY = address(-1);
 
     //namehash("bare-kit.aragonpm.eth")
     bytes32 constant bareKitId = 0xf5ac5461dc6e4b6382eea8c2bc0d0d47c346537a4cb19fba07e96d7ef0edc5c0;
-    //namehash("voting.aragonpm.eth")
-    bytes32 constant votingAppId = 0x9fa3927f639745e587912d4b0fea7ef9013bf93fb907d29faeab57417ba6e1d4;
     //namehash("token-manager.aragonpm.eth")
     bytes32 constant tokenManagerAppId = 0x6b20a3010614eeebf2138ccec99f028a61c811b3b1a3343b6ff635985c75c91f;
     //namehash("daonuts-template1-apps.open.aragonpm.eth")
     bytes32 constant templateAppsId = 0x338e30976fd9d1e355a8c1ba2c9867f8ee304ebc0851ae6b14bc50592c53102e;
     //namehash("airdrop-duo-app.open.aragonpm.eth")
     bytes32 constant airdropDuoAppId = 0xa9e4c5b47fe3f0e61f6a7a045848bf59d44a5eaad3fbb6274929030a2030797d;
+    //namehash("capped-voting-app.open.aragonpm.eth")
+    bytes32 constant cappedVotingAppId = 0xc255a5b08654df1ec932ab5c2e0d7b58809eb0499b6ea6a46a3029051b648446;
     //namehash("challenge-app.open.aragonpm.eth")
     bytes32 constant challengeAppId = 0x67c5438d71d05e58f99e88d6fb61ea5356b0f57106d3aba65c823267cc1cd07e;
+    //namehash("harberger-app.open.aragonpm.eth")
+    bytes32 constant harbergerAppId = 0xe2998d9700224635282e9c2da41222441463aa25bcf3bb5252b716e3c6045f95;
     //namehash("subscribe-app.open.aragonpm.eth")
     bytes32 constant subscribeAppId = 0xb6461185219d266fa4eb5f1acad9b08a010bfd1e1f6a45fe3e169f161d8d5af1;
     //namehash("tipping-app.open.aragonpm.eth")
     bytes32 constant tippingAppId = 0x2d550bdd0046ce7aa5f255924dc9665972f04f1563519485689baf371e8d224b;
+
 
     event DeployDao(address dao);
     event InstalledApp(address appProxy, bytes32 appId);
@@ -62,52 +67,50 @@ contract Template is TokenCache {
     constructor(ENS _ens) public {
         ens = _ens;
         fac = Template(latestVersionAppBase(bareKitId)).fac();
-        tokenFactory = new MiniMeTokenFactory();
+        /* tokenFactory = new MiniMeTokenFactory(); */
     }
 
     function createToken(string _name, uint8 _decimals, string _symbol, bool _transferable) public {
-        MiniMeToken token = tokenFactory.createCloneToken(MiniMeToken(0), 0, _name, _decimals, _symbol, _transferable);
+        /* MiniMeToken token = tokenFactory.createCloneToken(MiniMeToken(0), 0, _name, _decimals, _symbol, _transferable); */
+        Token token = new Token(_name, _decimals, _symbol, _transferable);
         _cacheToken(token, msg.sender);
     }
 
-    /* function newInstance(string _contribTokenName, string _currencyTokenName, address _installer) public { */
-    function newInstance(string _contribTokenName, string _currencyTokenName) public {
+    /* function newInstance(string _contribName, string _currencyName, address _installer) public { */
+    function newInstance(string _contribName, string _contribSymbol, string _currencyName, string _currencySymbol) public {
         Kernel dao = fac.newDAO(this);
         ACL acl = ACL(dao.acl());
         acl.createPermission(this, dao, dao.APP_MANAGER_ROLE(), this);
 
-        address voting = dao.newAppInstance(votingAppId, latestVersionAppBase(votingAppId));
-        emit InstalledApp(voting, votingAppId);
-
         address contribManager = dao.newAppInstance(tokenManagerAppId, latestVersionAppBase(tokenManagerAppId));
         emit InstalledApp(contribManager, tokenManagerAppId);
-        MiniMeToken contribToken = _popTokenCache(msg.sender, _contribTokenName);
-        contribToken.changeController(contribManager);
+        Token contrib = new Token(_contribName, 18, _contribSymbol, false);//_popTokenCache(msg.sender, _contribName);
+        contrib.changeController(contribManager);
+        TokenManager(contribManager).initialize(MiniMeToken(contrib), false, 0);
 
         address currencyManager = dao.newAppInstance(tokenManagerAppId, latestVersionAppBase(tokenManagerAppId));
         emit InstalledApp(currencyManager, tokenManagerAppId);
-        MiniMeToken currencyToken = _popTokenCache(msg.sender, _currencyTokenName);
-        currencyToken.changeController(currencyManager);
-        /* bool result = _installer.delegatecall(
-                          bytes4(keccak256("install(address,address,address,address,address,address)")),
-                          dao, voting, contribToken, contribManager, currencyToken, currencyManager); */
-        /* require(result, "INSTALL_FAILED"); */
-        /* _setup(dao, voting, contribToken, contribManager, currencyToken, currencyManager, _installer); */
-        _setup(dao, voting, contribToken, contribManager, currencyToken, currencyManager);
-        /* _permissions(acl, voting, contribManager, currencyManager, airdrop, challenge, subscribe, tipping); */
-        _cleanup(dao, acl);
+        Token currency = new Token(_currencyName, 18, _currencySymbol, true);//_popTokenCache(msg.sender, _currencyName);
+        currency.changeController(currencyManager);
+        TokenManager(currencyManager).initialize(MiniMeToken(currency), true, 0);
+
+        /* _setup(dao, voting, contrib, contribManager, currency, currencyManager); */
+        /* _cleanup(dao, acl); */
 
         emit DeployDao(dao);
     }
 
-    function _setup(
-      Kernel dao, address voting, address contribToken, address contribManager,
-      address currencyToken, address currencyManager
-    ) internal {
+    function setup(
+      Kernel dao, address contribManager, address currencyManager
+    ) public {
         address airdrop = dao.newAppInstance(airdropDuoAppId, latestVersionAppBase(airdropDuoAppId));
         emit InstalledApp(airdrop, airdropDuoAppId);
+        address voting = dao.newAppInstance(cappedVotingAppId, latestVersionAppBase(cappedVotingAppId));
+        emit InstalledApp(voting, cappedVotingAppId);
         address challenge = dao.newAppInstance(challengeAppId, latestVersionAppBase(challengeAppId));
         emit InstalledApp(challenge, challengeAppId);
+        address harberger = dao.newAppInstance(harbergerAppId, latestVersionAppBase(harbergerAppId));
+        emit InstalledApp(harberger, harbergerAppId);
         address subscribe = dao.newAppInstance(subscribeAppId, latestVersionAppBase(subscribeAppId));
         emit InstalledApp(subscribe, subscribeAppId);
         address tipping = dao.newAppInstance(tippingAppId, latestVersionAppBase(tippingAppId));
@@ -115,13 +118,16 @@ contract Template is TokenCache {
 
         bool result = latestVersionAppBase(templateAppsId)
                         .delegatecall(
-                          bytes4(keccak256("install(address,address,address,address,address,address,address,address,address,address)")),
-                          dao, voting, contribToken, contribManager, currencyToken, currencyManager, airdrop, challenge, subscribe, tipping);
+                          bytes4(keccak256("install(address,address,address,address,address,address,address,address,address)")),
+                          dao, voting, contribManager, currencyManager, airdrop, challenge, harberger, subscribe, tipping);
+
+        _cleanup(dao);
+
         emit DebugBool(result);
     }
 
-    function _cleanup(Kernel dao, ACL acl) internal {
-        /* ACL acl = ACL(_dao.acl()); */
+    function _cleanup(Kernel dao) internal {
+        ACL acl = ACL(dao.acl());
         bytes32 APP_MANAGER_ROLE = dao.APP_MANAGER_ROLE();
         bytes32 CREATE_PERMISSIONS_ROLE = acl.CREATE_PERMISSIONS_ROLE();
 
