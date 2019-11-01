@@ -101,7 +101,7 @@ contract Template is TokenCache {
     }
 
     function setup(
-      Kernel dao, address contribManager, address currencyManager
+      Kernel dao, address contribManager, address currencyManager, bytes32 airdropRoot, string airdropDataURI
     ) public {
         address airdrop = dao.newAppInstance(airdropDuoAppId, latestVersionAppBase(airdropDuoAppId));
         emit InstalledApp(airdrop, airdropDuoAppId);
@@ -115,6 +115,8 @@ contract Template is TokenCache {
         emit InstalledApp(subscribe, subscribeAppId);
         address tipping = dao.newAppInstance(tippingAppId, latestVersionAppBase(tippingAppId));
         emit InstalledApp(tipping, tippingAppId);
+
+        AirdropDuo(airdrop).initialize(contribManager, currencyManager, airdropRoot, airdropDataURI);
 
         bool result = latestVersionAppBase(templateAppsId)
                         .delegatecall(

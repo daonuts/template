@@ -50,7 +50,7 @@ async function main(){
 
   console.log(`tokenManagers: ${tokenManagers}`)
 
-  const txSetup = await template.setup(dao, ...tokenManagers)
+  const txSetup = await template.setup(dao, ...tokenManagers, process.env.FIRST_AIRDROP_ROOT, process.env.FIRST_AIRDROP_DATA_URI)
   console.log("txSetup")
   const setupBlock = await txSetup.wait()
   console.log("setup transactionHash", setupBlock.transactionHash)
