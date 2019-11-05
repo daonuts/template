@@ -17,7 +17,9 @@ import "@aragon/os/contracts/lib/ens/PublicResolver.sol";
 
 import "@aragon/apps-shared-minime/contracts/MiniMeToken.sol";
 import "@aragon/apps-token-manager/contracts/TokenManager.sol";
+import "@aragon/apps-agent/contracts/Agent.sol";
 /* import "@aragon/apps-voting/contracts/Voting.sol"; */
+
 import "@daonuts/token/contracts/Token.sol";
 import "@daonuts/airdrop-duo/contracts/AirdropDuo.sol";
 import "@daonuts/challenge/contracts/Challenge.sol";
@@ -42,6 +44,8 @@ contract Template is TokenCache {
     bytes32 constant bareKitId = 0xf5ac5461dc6e4b6382eea8c2bc0d0d47c346537a4cb19fba07e96d7ef0edc5c0;
     //namehash("token-manager.aragonpm.eth")
     bytes32 constant tokenManagerAppId = 0x6b20a3010614eeebf2138ccec99f028a61c811b3b1a3343b6ff635985c75c91f;
+    //namehash("agent.aragonpm.eth")
+    bytes32 constant agentAppId = 0x9ac98dc5f995bf0211ed589ef022719d1487e5cb2bab505676f0d084c07cf89a;
     //namehash("daonuts-template1-apps.open.aragonpm.eth")
     bytes32 constant templateAppsId = 0x338e30976fd9d1e355a8c1ba2c9867f8ee304ebc0851ae6b14bc50592c53102e;
     //namehash("airdrop-duo-app.open.aragonpm.eth")
@@ -115,13 +119,15 @@ contract Template is TokenCache {
         emit InstalledApp(subscribe, subscribeAppId);
         address tipping = dao.newAppInstance(tippingAppId, latestVersionAppBase(tippingAppId));
         emit InstalledApp(tipping, tippingAppId);
+        address agent = dao.newAppInstance(agentAppId, latestVersionAppBase(agentAppId));
+        emit InstalledApp(agent, agentAppId);
 
         AirdropDuo(airdrop).initialize(contribManager, currencyManager, airdropRoot, airdropDataURI);
 
         bool result = latestVersionAppBase(templateAppsId)
                         .delegatecall(
-                          bytes4(keccak256("install(address,address,address,address,address,address,address,address,address)")),
-                          dao, voting, contribManager, currencyManager, airdrop, challenge, harberger, subscribe, tipping);
+                          bytes4(keccak256("install(address,address,address,address,address,address,address,address,address,address)")),
+                          dao, voting, contribManager, currencyManager, airdrop, challenge, harberger, subscribe, tipping, agent);
 
         _cleanup(dao);
 
