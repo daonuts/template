@@ -50,7 +50,7 @@ async function main(){
 
   console.log(`tokenManagers: ${tokenManagers}`)
 
-  const txSetup = await template.setup(dao, ...tokenManagers, process.env.FIRST_AIRDROP_ROOT, process.env.FIRST_AIRDROP_DATA_URI)
+  const txSetup = await template.setup(dao, ...tokenManagers, wallet.address, process.env.FIRST_AIRDROP_ROOT, process.env.FIRST_AIRDROP_DATA_URI)
   console.log("txSetup")
   const setupBlock = await txSetup.wait()
   console.log("setup transactionHash", setupBlock.transactionHash)
@@ -59,9 +59,9 @@ async function main(){
   // await templateWeb3.getPastEvents('Debug', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
   //   .then(console.log)
   //
-  // await templateWeb3.getPastEvents('DebugBool', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
+  // await templateWeb3.getPastEvents('DEBUG', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
   //   .then(console.log)
-  await templateWeb3.getPastEvents('DebugBool', {fromBlock: setupBlock.blockNumber, toBlock: setupBlock.blockNumber})
+  await templateWeb3.getPastEvents('DEBUG', {fromBlock: setupBlock.blockNumber, toBlock: setupBlock.blockNumber})
     .then(console.log)
 
   // await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})

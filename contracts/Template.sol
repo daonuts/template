@@ -64,8 +64,7 @@ contract Template is TokenCache {
 
     event DeployDao(address dao);
     event InstalledApp(address appProxy, bytes32 appId);
-    /* event Debug(address debug); */
-    event DebugBool(bool debug);
+    event DEBUG(bool debug);
 
     /* constructor(ENS _ens, address _installer) public { */
     constructor(ENS _ens) public {
@@ -105,14 +104,36 @@ contract Template is TokenCache {
     }
 
     function setup(
-      Kernel dao, address contribManager, address currencyManager, bytes32 airdropRoot, string airdropDataURI
+      Kernel dao, address contribManager, address currencyManager, address initialAdmin, bytes32 airdropRoot, string airdropDataURI
     ) public {
         address airdrop = dao.newAppInstance(airdropDuoAppId, latestVersionAppBase(airdropDuoAppId));
         emit InstalledApp(airdrop, airdropDuoAppId);
+
+        AirdropDuo(airdrop).initialize(contribManager, currencyManager, airdropRoot, airdropDataURI);
+
+        _installSetA(dao, contribManager, currencyManager, airdrop);
+        _installSetB(dao, currencyManager);
+
+        _cleanup(dao);
+    }
+
+    function _installSetA(
+      Kernel dao, address contribManager, address currencyManager, address airdrop
+    ) internal {
         address voting = dao.newAppInstance(cappedVotingAppId, latestVersionAppBase(cappedVotingAppId));
         emit InstalledApp(voting, cappedVotingAppId);
         address challenge = dao.newAppInstance(challengeAppId, latestVersionAppBase(challengeAppId));
         emit InstalledApp(challenge, challengeAppId);
+
+        bool resultSetA = latestVersionAppBase(templateAppsId)
+                        .delegatecall(
+                          bytes4(keccak256("installSetA(address,address,address,address,address,address)")),
+                          dao, voting, contribManager, currencyManager, airdrop, challenge);
+
+        emit DEBUG(resultSetA);
+    }
+
+    function _installSetB(Kernel dao, address currencyManager) internal {
         address harberger = dao.newAppInstance(harbergerAppId, latestVersionAppBase(harbergerAppId));
         emit InstalledApp(harberger, harbergerAppId);
         address subscribe = dao.newAppInstance(subscribeAppId, latestVersionAppBase(subscribeAppId));
@@ -122,16 +143,12 @@ contract Template is TokenCache {
         address agent = dao.newAppInstance(agentAppId, latestVersionAppBase(agentAppId));
         emit InstalledApp(agent, agentAppId);
 
-        AirdropDuo(airdrop).initialize(contribManager, currencyManager, airdropRoot, airdropDataURI);
-
-        bool result = latestVersionAppBase(templateAppsId)
+        bool resultSetB = latestVersionAppBase(templateAppsId)
                         .delegatecall(
-                          bytes4(keccak256("install(address,address,address,address,address,address,address,address,address,address)")),
-                          dao, voting, contribManager, currencyManager, airdrop, challenge, harberger, subscribe, tipping, agent);
+                          bytes4(keccak256("installSetB(address,address,address,address,address,address)")),
+                          dao, currencyManager, harberger, subscribe, tipping, agent);
 
-        _cleanup(dao);
-
-        emit DebugBool(result);
+        emit DEBUG(resultSetB);
     }
 
     function _cleanup(Kernel dao) internal {
@@ -147,12 +164,6 @@ contract Template is TokenCache {
         acl.revokePermission(this, acl, CREATE_PERMISSIONS_ROLE);
         acl.setPermissionManager(msg.sender, acl, CREATE_PERMISSIONS_ROLE);
     }
-
-    /* function _mintHolders(TokenManager _tokenManager, address[] _holders) internal {
-        for (uint i=0; i<_holders.length; i++) {
-            _tokenManager.mint(_holders[i], 1 * 10**18); // Give 1 token to each holder
-        }
-    } */
 
     function latestVersionAppBase(bytes32 appId) public view returns (address base) {
         Repo repo = Repo(PublicResolver(ens.resolver(appId)).addr(appId));
