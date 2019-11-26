@@ -18,7 +18,7 @@
 		"@daonuts/subscribe": "^0.0.3",
 		"@daonuts/template-apps": "0.0.3",
 		"@daonuts/tipping": "^0.0.5",
-		"@daonuts/token": "^0.0.6",
+		"@daonuts/token": "^0.0.8",
 		"core-js": "^3.1.4",
 		"eth-ens-namehash": "^2.0.8",
 		"web3": "^1.2.1"

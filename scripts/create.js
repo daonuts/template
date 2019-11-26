@@ -27,14 +27,7 @@ async function main(){
   console.log("tippingAddress", tippingAddress)
   // return
   const template = new ethers.Contract(templateAddress, TemplateABI, wallet);
-  // const txContribToken = await template.createToken("Contrib", 18, "CONTRIB", false)
-  // await txContribToken.wait()
-  // console.log("txContribToken")
-  // const txCurrencyToken = await template.createToken("Currency", 18, "CURRENCY", true)
-  // await txCurrencyToken.wait()
-  // console.log("txCurrencyToken")
-  // const txDao = await template.newInstance("Contrib", "Currency", {gasLimit: 6900000})
-  const txDao = await template.newInstance("Contrib", "CONTRIB", "Currency", "CURRENCY")
+  const txDao = await template.newInstance(process.env.CONTRIB_NAME, process.env.CONTRIB_SYMBOL, process.env.CURRENCY_NAME, process.env.CURRENCY_SYMBOL)
   console.log("txDao")
   const daoBlock = await txDao.wait()
   console.log("dao transactionHash", daoBlock.transactionHash)
@@ -55,30 +48,8 @@ async function main(){
   const setupBlock = await txSetup.wait()
   console.log("setup transactionHash", setupBlock.transactionHash)
 
-
-  // await templateWeb3.getPastEvents('Debug', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-  //   .then(console.log)
-  //
-  // await templateWeb3.getPastEvents('DEBUG', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-  //   .then(console.log)
   await templateWeb3.getPastEvents('DEBUG', {fromBlock: setupBlock.blockNumber, toBlock: setupBlock.blockNumber})
     .then(console.log)
-
-  // await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-  //   .then(console.log)
-
-  // const cappedVotingAppId = namehash("capped-voting-app.open.aragonpm.eth")
-  // const voting = await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-  //   .then(events=>events.filter(e=>e.returnValues.appId===cappedVotingAppId)[0].returnValues.appProxy)
-  // console.log(`capped voting: ${voting}`)
-  //
-  // const challengeAppId = namehash("challenge-app.open.aragonpm.eth")
-  // const challenge = await templateWeb3.getPastEvents('InstalledApp', {fromBlock: daoBlock.blockNumber, toBlock: daoBlock.blockNumber})
-  //   .then(events=>events.filter(e=>e.returnValues.appId===challengeAppId)[0].returnValues.appProxy)
-  // console.log(`challenge: ${challenge}`)
-  //
-  // const txTemplateApps = await template.installApps(dao, voting, tokenManagers[0], tokenManagers[1])
-  // await txTemplateApps.wait()
 
 }
 main()
